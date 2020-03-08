@@ -17,6 +17,7 @@ const selectCartItems = () => ({
     driver: 'postgres'
 });
 
+
 const selectCartItemsByCartId = (cartId) =>
     cartItems.find((cartItems) => cartItems['cartItemId'] === cartId);
 
