@@ -9,9 +9,9 @@ const {
     selectCarts,
     selectCartByCartId,
     selectCartsByCustomerId
-} = require('../../repositories/cart-repository');
+} = require('../../../repositories/cart-repository');
 
-jest.mock('../../repositories/cart-repository');
+jest.mock('../../../repositories/cart-repository');
 
 describe('getAllCarts', () => {
     let expectedFirstCart,
