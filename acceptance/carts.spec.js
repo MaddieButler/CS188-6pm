@@ -19,7 +19,7 @@ describe('/carts', () => {
     });
 
     afterAll(async () => {
-        await frisby.del('http://localhost:3000/carts/${cartId}');
+        await frisby.del(`http://localhost:3000/carts/${cartId}`);
     });
 
     describe('GET /carts', () => {
@@ -33,7 +33,7 @@ describe('/carts', () => {
     describe('GET /carts/{cartId}', () => {
         test('get a cart by cartId that exists', async () => {
             await frisby
-                .get('http://localhost:3000/carts/${cartId}')
+                .get(`http://localhost:3000/carts/${cartId}`)
                 .expect('status', 200);
         });
 
@@ -41,7 +41,7 @@ describe('/carts', () => {
             const randomCartId = uuid.v4();
 
             await frisby
-                .get('http://localhost:3000/cartId/${randomCartId}')
+                .get(`http://localhost:3000/cartId/${randomCartId}`)
                 .expect('status', 404);
         });
     });
@@ -56,11 +56,11 @@ describe('/carts', () => {
             };
 
             await frisby
-                .put('http://localhost:3000/carts/${cartId}', updateCart)
+                .put(`http://localhost:3000/carts/${cartId}`, updateCart)
                 .expect('status', 204);
 
             const response = await frisby
-                .get('http://localhost:3000/carts/${cartId}')
+                .get(`http://localhost:3000/carts/${cartId}`)
                 .expect('status', 200);
 
             expect(response.json).toEqual(updateCart);
@@ -76,10 +76,10 @@ describe('/carts', () => {
 
             await frisby.post('http://localhost:3000/carts', anotherCart);
 
-            await frisby.del('http://localhost:3000/carts/${anotherCart.cartId}')
+            await frisby.del(`http://localhost:3000/carts/${anotherCart.cartId}`)
                 .expect('status', 204);
 
-            await frisby.get('http://localhost:3000/carts/${anotherCart.cartId}')
+            await frisby.get(`http://localhost:3000/carts/${anotherCart.cartId}`)
                 .expect('status', 404);
         });
     });
@@ -95,7 +95,7 @@ describe('/carts', () => {
                 .expect('status', 201)
                 .expect('json', anotherCart);
 
-            await frisby.del('http://localhost:3000/carts/${anotherCart.customerId}');
+            await frisby.del(`http://localhost:3000/carts/${anotherCart.customerId}`);
         });
     });
 
@@ -103,7 +103,7 @@ describe('/carts', () => {
         test('should be able to get a customers carts', async () => {
             const originalCustomerId = 'd83ff143-9f8b-445a-8d8f-b9b8fe0f9f28';
 
-            await frisby.get('http://localhost:3000/customers/${originalCustomerId}/carts')
+            await frisby.get(`http://localhost:3000/customers/${originalCustomerId}/carts`)
                 .expect('status', 200);
         });
     });

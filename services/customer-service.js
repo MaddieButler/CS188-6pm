@@ -1,8 +1,9 @@
 const {
-       selectCustomerByCustomerId,
-       insertCustomer,
-       updateCustomer,
-       deleteCustomerByCustomerId
+    selectCustomers,
+    selectCustomerByCustomerId,
+    insertCustomer,
+    updateCustomer,
+    deleteCustomerByCustomerId
 } = require('../repositories/customer-repository');
 
 const mapToModel = (customer) => ({

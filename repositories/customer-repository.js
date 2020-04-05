@@ -16,8 +16,6 @@ const selectCustomerByCustomerId = (customerId) =>
 
 const insertCustomer = (customer) => customers.push(customer);
 
-const insertCustomer = (customer) => customers.push(customer);
-
 const updateCustomer = (updatedCustomer) => {
     const customersThatDontMatch = customers.filter((customer) =>
         customer['customer_id'] !== updatedCustomer['customer_id']
