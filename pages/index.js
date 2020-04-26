@@ -4,9 +4,18 @@ export default function Index() {
         return (
                   <div>
                         <p> Drake University - Apparel </p>
-                        <Link href="/items">
-                                <a>View Apparel Here</a>
-                        </Link>
+                        <ul>
+                            <li>
+                                <Link href="/items">
+                                    <a>View Apparel Here</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/cart">
+                                    <a>View Cart Here</a>
+                                </Link>
+                            </li>
+                        </ul>
                   </div>
         );
 }
