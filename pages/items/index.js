@@ -24,5 +24,3 @@ Index.getInitialProps = async function() {
 			items
 	};
 };
-
-export default Index;
